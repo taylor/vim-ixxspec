@@ -1,0 +1,32 @@
+#!/bin/sh
+
+function runbelow() {
+  if [ "$TERM" = "screen" ] ; then
+    winmgr=screen
+    echo "FIXME: screen support not completed"
+    exit
+  elif [ ! -z "$TMUX" ] ; then
+    winmgr=tmux
+  else
+    echo "You do not seem to be using screen or tmux"
+    exit
+  fi
+
+  case $winmgr in
+    screen)
+        screen -X focus
+        #TODO: send command...
+        screen -X focus
+        ;;
+      tmux)
+        #TODO: have it select a pane called testing???
+        #tmux selectp -t 1
+        tmux selectp -D
+        tmux send-keys "$*" C-m
+        tmux selectp -U
+        #tmux selectp -t 0
+        ;;
+  esac
+}
+
+runbelow $@
