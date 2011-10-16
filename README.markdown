@@ -12,7 +12,6 @@ pane/region below my code pane.
  1. Run rspec on the last spec file tested -- good for when you are not looking at that spec file
  1. Run rspec for a block in a spec file (really just runs based on line number)
 
-
 You can run those spec scenarios with:
 
  1. `:Spec`
@@ -20,13 +19,25 @@ You can run those spec scenarios with:
  1. `:SpecLast`
  1. `:SpecBlock`
 
-You may also want to create some maps for faster interaction.  You can run
-`:IxxSpecDefaultMaps` to get the mapping I suggest:
+
+For faster interaction you may want to create some mappings.  Feel free to run
+`:IxxSpecDefaultMaps` to get the mapping I suggest, which are:
 
     map <leader>SS :Spec<cr>
     map <leader>ST :SpecThis<cr>
     map <leader>SL :SpecLast<cr>
     map <leader>SB :SpecBlock<cr>
+
+My leader is set to `\` so that would be \ST to run rspec on the currently
+viewed spec file.
+
+All of this will run with out a tmux/screen, but it will just show the
+information like any other :! command below the status bar.
+
+If you want the output in a vim split window you may be happier with a
+different plugin... not sure if this one will ever add that functionality since
+I prefer the tmux/screen window split.  It would be nice to see rspec executing
+in no tmux/screen mode...
 
 Installation
 ------------
