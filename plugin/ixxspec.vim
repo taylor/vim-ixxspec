@@ -25,7 +25,7 @@ if !exists('g:IxxSpecRunBelow')
 endif
 
 if !exists('g:IxxSpecRunBelowExecutable') && g:IxxSpecRunBelow == 1
-  let g:IxxSpecRunBelowExecutable = t:IxxSpecPlugin . "/ixxspec_runbelow"
+  let g:IxxSpecRunBelowExecutable = g:IxxSpecPlugin . "/ixxspec_runbelow"
   if ! filereadable(g:IxxSpecRunBelowExecutable)
     echo "Could not find spec script (" . specscriptname . ") in any known plugin path"
     finish
@@ -76,17 +76,39 @@ command! SpecLast :call SpecThis(expand(lastspecfile))
 command! SpecBlock :call SpecBlock(expand('%'))
 
 function! s:Spec()
-  return system(t:speccmd)
+  echomsg "Running spec tests..." 
+  "sleep 10m
+  let l:results = system(t:speccmd)
+  if g:IxxSpecRunBelow == 1
+    echomsg "Results are in target test window"
+    return l:results
+  else
+    echo l:results
+  end
 endfunction  
 
 let g:lastspecfile=''
 function! SpecThis(file)
+  echomsg "Running spec tests..."
   let g:lastspecfile=a:file
-  return system(t:speccmd . " " . a:file)
+  let l:results = system(t:speccmd . " " . a:file)
+  if g:IxxSpecRunBelow == 1
+    echomsg "Results are in target test window"
+    return l:results
+  else
+    echo l:results
+  end
 endfunction  
 
 function! SpecBlock(file)
+  echomsg "Running spec tests..."
   let g:lastspecfile=a:file
   let g:mylinenum=line('.')
-  return system(t:speccmd . " -l " . g:mylinenum . " " . a:file)
+  let l:results = system(t:speccmd . " -l " . g:mylinenum . " " . a:file)
+  if g:IxxSpecRunBelow == 1
+    echomsg "Results are in target test window"
+    return l:results
+  else
+    echo l:results
+  end
 endfunction  
