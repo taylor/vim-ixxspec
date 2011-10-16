@@ -4,13 +4,20 @@ ixxspec.vim
 Quick and dirty rspec integration with vim.  Yes there are many choices out
 there and most have many more features... including some that you may want like
 jumping to the first error in your source code.   I did not want any of that.
-I wanted to run rspec in 4 simple ways, and have that run in a tmux (or screen)
-pane/region below my code pane.
 
- 1. Run rspec spec for all tests
- 1. Run rspec on an indivual spec file
+I wanted to run rspec in 4 simple ways and preferred to have it run in a tmux (or screen) window below my code.
+If you have used Slime, then this plugin should feel comfortable.  
+
+You can check out  [Slime.vim circa
+2007](http://technotales.wordpress.com/2007/10/03/like-slime-for-vim/) (new
+version on github as [vim-slime](https://github.com/jpalardy/vim-slime)).
+
+The four scenarios supported for running tests are:
+
+ 1. Run all tests
+ 1. Run tests the currently viewed spec file
  1. Run rspec on the last spec file tested -- good for when you are not looking at that spec file
- 1. Run rspec for a block in a spec file (really just runs based on line number)
+ 1. Run rspec for a block in a spec file (current) -- focused test by line number you are on
 
 You can run those spec scenarios with:
 
