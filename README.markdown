@@ -8,7 +8,7 @@ jumping to the first error in your source code.   I did not want any of that.
 I wanted to run rspec in 4 simple ways and preferred to have it run in a tmux (or screen) window below my code.
 If you have used Slime, then this plugin should feel comfortable.  
 
-You can check out  [2007 Slime.vim blog
+You can check out the [2007 Slime.vim blog
 entry](http://technotales.wordpress.com/2007/10/03/like-slime-for-vim/) or the
 new version on github as [vim-slime](https://github.com/jpalardy/vim-slime) for
 more information on Slime.vim.
@@ -89,7 +89,7 @@ Self-Promotion
 
 Like ixxspec.vim? Follow the repository on
 [GitHub](https://github.com/taylor/vim-ixxspec)
-or me via [Twitter](http://twitter.com/ixx) and
+and/or me via [Twitter](http://twitter.com/ixx) and
 [GitHub](https://github.com/taylor).
 
 License
